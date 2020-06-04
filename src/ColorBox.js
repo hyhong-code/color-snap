@@ -21,7 +21,7 @@ class ColorBox extends Component {
   }
 
   render() {
-    const { background, name } = this.props;
+    const { background, name, moreUrl } = this.props;
     const { showOverlay } = this.state;
 
     return (
@@ -41,7 +41,7 @@ class ColorBox extends Component {
             </div>
             <button className="copy-button">Copy</button>
           </div>
-          <Link to="/" onClick={(evt) => evt.stopPropagation()}>
+          <Link to={moreUrl} onClick={(evt) => evt.stopPropagation()}>
             <span className="show-more">More</span>
           </Link>
         </div>
