@@ -12,6 +12,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Button from "@material-ui/core/Button";
 import { ChromePicker } from "react-color";
+import DraggableColorBox from "./DraggableColorBox";
 
 const drawerWidth = 400;
 
@@ -55,6 +56,7 @@ const styles = (theme) => ({
     justifyContent: "flex-end",
   },
   content: {
+    height: "calc(100vh - 64px)",
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
     transition: theme.transitions.create("margin", {
@@ -73,9 +75,16 @@ const styles = (theme) => ({
 });
 
 class NewPaletteForm extends Component {
-  state = {
-    open: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      curColor: "teal",
+      colors: ["purple", "#e15764"],
+    };
+    this.updateCurColor = this.updateCurColor.bind(this);
+    this.addNewColor = this.addNewColor.bind(this);
+  }
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -84,6 +93,14 @@ class NewPaletteForm extends Component {
   handleDrawerClose = () => {
     this.setState({ open: false });
   };
+
+  updateCurColor(newColor) {
+    this.setState({ curColor: newColor.hex });
+  }
+
+  addNewColor() {
+    this.setState((ps) => ({ colors: [...ps.colors, this.state.curColor] }));
+  }
 
   render() {
     const { classes } = this.props;
@@ -137,10 +154,16 @@ class NewPaletteForm extends Component {
             </Button>
           </div>
           <ChromePicker
-            color="purple"
-            onChangeComplete={(newColor) => console.log(newColor)}
+            color={this.state.curColor}
+            onChangeComplete={this.updateCurColor}
+            disableAlpha
           />
-          <Button variant="contained" color="primary">
+          <Button
+            variant="contained"
+            color="primary"
+            style={{ backgroundColor: this.state.curColor }}
+            onClick={this.addNewColor}
+          >
             ADD COLOR
           </Button>
         </Drawer>
@@ -150,6 +173,9 @@ class NewPaletteForm extends Component {
           })}
         >
           <div className={classes.drawerHeader} />
+          {this.state.colors.map((color) => (
+            <DraggableColorBox color={color} />
+          ))}
         </main>
       </div>
     );
