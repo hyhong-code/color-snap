@@ -32,25 +32,27 @@ class Navbar extends Component {
   }
 
   render() {
-    const { level, changeLevel } = this.props;
+    const { level, changeLevel, showSlider } = this.props;
     const { format, snackbarOpen } = this.state;
     return (
       <header className="Navbar">
         <div className="logo">
           <Link to="/">Color Snap</Link>
         </div>
-        <div className="slider-container">
-          <span>Level: {level}</span>
-          <div className="slider">
-            <Slider
-              defaultValue={level}
-              min={100}
-              max={900}
-              step={100}
-              onAfterChange={changeLevel}
-            />
+        {showSlider && (
+          <div className="slider-container">
+            <span>Level: {level}</span>
+            <div className="slider">
+              <Slider
+                defaultValue={level}
+                min={100}
+                max={900}
+                step={100}
+                onAfterChange={changeLevel}
+              />
+            </div>
           </div>
-        </div>
+        )}
         <div className="select-container">
           <Select value={format} onChange={this.handleFormatChange}>
             <MenuItem value="hex">Hex - #ffffff</MenuItem>
@@ -76,7 +78,7 @@ class Navbar extends Component {
               onClick={this.closeSnackbar}
               color="inherit"
               key="close"
-              aria-babel="close"
+              aria-label="close"
             >
               <CloseIcon />
             </IconButton>,
