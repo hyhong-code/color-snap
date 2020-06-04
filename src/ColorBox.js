@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Chroma from "chroma-js";
 import { Link } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import "./ColorBox.css";
@@ -23,6 +24,8 @@ class ColorBox extends Component {
   render() {
     const { background, name, moreUrl, showLink } = this.props;
     const { showOverlay } = this.state;
+    const isDarkColor = Chroma(background).luminance() <= 0.08;
+    const isLightColor = Chroma(background).luminance() >= 0.7;
 
     return (
       <CopyToClipboard text={background} onCopy={this.handleCopy}>
@@ -33,17 +36,21 @@ class ColorBox extends Component {
           />
           <div className={`copy-msg ${showOverlay && "show"}`}>
             <h1>Copied!</h1>
-            <p>{background}</p>
+            <p className={`${isLightColor && "dark-text"}`}>{background}</p>
           </div>
           <div className="copy-container">
             <div className="box-content">
-              <span>{name}</span>
+              <span className={isDarkColor && "light-text"}>{name}</span>
             </div>
-            <button className="copy-button">Copy</button>
+            <button className={`copy-button ${isLightColor && "dark-text"}`}>
+              Copy
+            </button>
           </div>
           {showLink && (
             <Link to={moreUrl} onClick={(evt) => evt.stopPropagation()}>
-              <span className="show-more">More</span>
+              <span className={`show-more ${isLightColor && "dark-text"}`}>
+                More
+              </span>
             </Link>
           )}
         </div>
