@@ -8,11 +8,11 @@ import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Button from "@material-ui/core/Button";
-import { ChromePicker } from "react-color";
 import DraggableColorList from "./DraggableColorList";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
+import { ValidatorForm } from "react-material-ui-form-validator";
 import { arrayMove } from "react-sortable-hoc";
 import FormNav from "./FormNav";
+import ColorPickerForm from "./ColorPickerForm";
 
 const drawerWidth = 400;
 
@@ -229,33 +229,14 @@ class NewPaletteForm extends Component {
               Random Color
             </Button>
           </div>
-          <ChromePicker
-            color={curColor}
-            onChangeComplete={this.updateCurColor}
-            disableAlpha
+          <ColorPickerForm
+            curColor={curColor}
+            newColorName={newColorName}
+            isPaletteFull={isPaletteFull}
+            updateCurColor={this.updateCurColor}
+            addNewColor={this.addNewColor}
+            handleChange={this.handleChange}
           />
-          <ValidatorForm onSubmit={this.addNewColor} instantValidate={false}>
-            <TextValidator
-              name="newColorName"
-              value={newColorName}
-              onChange={this.handleChange}
-              validators={["required", "isColorNameUnique", "isColorUnique"]}
-              errorMessages={[
-                "Please enter a color name!",
-                "Color name must be unique!",
-                "Color already exists!",
-              ]}
-            />
-            <Button
-              variant="contained"
-              color="primary"
-              style={{ backgroundColor: isPaletteFull ? "grey" : curColor }}
-              type="submit"
-              disabled={isPaletteFull}
-            >
-              {isPaletteFull ? "PALETTE FULL" : "ADD COLOR"}
-            </Button>
-          </ValidatorForm>
         </Drawer>
         <main
           className={classNames(classes.content, {
