@@ -21,6 +21,12 @@
   color: black;
 }
 
+.slider {
+  width: 340px;
+  margin: 0 10px;
+  display: inline-block;
+}
+
 /* overwrite RC Slider library classes */
 .rc-slider-track {
   background-color: transparent;
