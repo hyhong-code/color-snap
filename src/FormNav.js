@@ -74,7 +74,7 @@ class FormNav extends Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              Create Custom Pelette
+              DESIGN CUSTOM PALETTE!
             </Typography>
           </Toolbar>
           <div className={classes.navBtns}>
@@ -82,7 +82,7 @@ class FormNav extends Component {
               <TextValidator
                 name="newPaletteName"
                 value={newPaletteName}
-                label="Palette Name"
+                label="PALETTE NAME..."
                 onChange={handleChange}
                 validators={["required", "isPeletteNameUnique"]}
                 errorMessages={[
@@ -91,7 +91,7 @@ class FormNav extends Component {
                 ]}
               />
               <Button variant="contained" color="primary" type="submit">
-                Save Palette
+                SAVE PALETTE
               </Button>
             </ValidatorForm>
             <Link to="/">
