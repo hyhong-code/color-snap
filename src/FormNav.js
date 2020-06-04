@@ -57,10 +57,15 @@ class FormNav extends Component {
       showForm: false,
     };
     this.handleShowForm = this.handleShowForm.bind(this);
+    this.handleHideForm = this.handleHideForm.bind(this);
   }
 
   handleShowForm() {
     this.setState({ showForm: true });
+  }
+
+  handleHideForm() {
+    this.setState({ showForm: false });
   }
 
   render() {
@@ -120,6 +125,7 @@ class FormNav extends Component {
             handleSubmit={handleSubmit}
             handleChange={handleChange}
             newPaletteName={newPaletteName}
+            handleHideForm={this.handleHideForm}
           />
         )}
       </div>
