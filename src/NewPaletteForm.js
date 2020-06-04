@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -90,6 +91,7 @@ class NewPaletteForm extends Component {
     this.updateCurColor = this.updateCurColor.bind(this);
     this.addNewColor = this.addNewColor.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -127,6 +129,19 @@ class NewPaletteForm extends Component {
     this.setState({ [name]: value });
   }
 
+  handleSubmit() {
+    // TODO: BUILD NEW PALETTE FROM STATE *****************************************
+    const newName = "New Test Palette";
+    const newPalette = {
+      paletteName: newName,
+      id: newName.replace(/ /g, "-"),
+      emoji: "🎨",
+      colors: this.state.colors,
+    };
+    this.props.savePalette(newPalette);
+    this.props.history.push("/");
+  }
+
   render() {
     const { classes } = this.props;
     const { open } = this.state;
@@ -136,6 +151,7 @@ class NewPaletteForm extends Component {
         <CssBaseline />
         <AppBar
           position="fixed"
+          color="default"
           className={classNames(classes.appBar, {
             [classes.appBarShift]: open,
           })}
@@ -152,6 +168,13 @@ class NewPaletteForm extends Component {
             <Typography variant="h6" color="inherit" noWrap>
               Persistent drawer
             </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.handleSubmit}
+            >
+              Save Palette
+            </Button>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -219,4 +242,6 @@ class NewPaletteForm extends Component {
     );
   }
 }
-export default withStyles(styles, { withTheme: true })(NewPaletteForm);
+export default withRouter(
+  withStyles(styles, { withTheme: true })(NewPaletteForm)
+);
