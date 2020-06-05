@@ -11,18 +11,11 @@ class MiniPalette extends Component {
 
   handleRemove(evt) {
     evt.stopPropagation();
-    this.props.removePalette(this.props.id);
+    this.props.openDialog(this.props.id);
   }
 
   render() {
-    const {
-      classes,
-      paletteName,
-      emoji,
-      colors,
-      handleClick,
-      removePalette,
-    } = this.props;
+    const { classes, paletteName, emoji, colors, handleClick } = this.props;
     const miniBoxes = colors.map((color) => (
       <div
         key={color.name}

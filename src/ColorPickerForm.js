@@ -6,9 +6,6 @@ import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import styles from "./styles/ColorPickerFormStyles";
 
 class ColorPickerForm extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const {
       curColor,

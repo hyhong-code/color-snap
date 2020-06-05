@@ -59,7 +59,12 @@ class FormNav extends Component {
             >
               <AddToPhotosIcon />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
+            <Typography
+              className={classes.heading}
+              variant="h6"
+              color="inherit"
+              noWrap
+            >
               DESIGN CUSTOM PALETTE
             </Typography>
           </Toolbar>
