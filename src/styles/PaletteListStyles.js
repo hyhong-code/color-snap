@@ -1,4 +1,5 @@
 import sizes from "./sizes";
+import bg from "./bg.svg";
 export default {
   root: {
     backgroundColor: "blue",
@@ -6,11 +7,18 @@ export default {
     display: "flex",
     justifyContent: "center",
     alighItems: "flex-start",
+    // background by SVGBackgrounds.com
+    backgroundColor: "#330033",
+    backgroundImage: `url(${bg})`,
+    overflow: "scroll",
+  },
+  heading: {
+    fontSize: "2rem",
   },
   container: {
     width: "50%",
     display: "flex",
-    alignItems: "flex-start",
+    alignItems: "center",
     flexDirection: "column",
     [sizes.down("xl")]: {
       width: "80%",
@@ -28,6 +36,8 @@ export default {
     "& a": {
       color: "white",
       textDecoration: "none",
+      fontSize: "1.2rem",
+      fontWeight: "500",
     },
   },
   palettes: {
@@ -41,7 +51,7 @@ export default {
     },
     [sizes.down("xs")]: {
       gridTemplateColumns: "repeat(1, 100%)",
-      gridGap: "1rem",
+      gridGap: "1.5rem",
     },
   },
 };
