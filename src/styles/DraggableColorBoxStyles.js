@@ -8,7 +8,7 @@ const styles = {
     display: "inline-block",
     cursor: "pointer",
     position: "relative",
-    marginBottom: "-5px",
+    marginBottom: "-3.5px",
     "&:hover $deleteIcon": {
       color: "white",
       transform: "scale(1.4)",
@@ -28,7 +28,7 @@ const styles = {
   },
   boxContent: {
     position: "absolute",
-    width: "100%",
+    width: "95%",
     left: "0",
     bottom: "0",
     padding: "10px",
