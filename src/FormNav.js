@@ -65,6 +65,7 @@ class FormNav extends Component {
   }
 
   handleHideForm() {
+    console.log("hide!");
     this.setState({ showForm: false });
   }
 
