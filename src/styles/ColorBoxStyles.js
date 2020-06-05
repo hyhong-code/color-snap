@@ -8,7 +8,7 @@ export default {
     cursor: "pointer",
     position: "relative",
     marginBottom: "-3.5px",
-    "&:hover button": {
+    "&:hover $copyButton": {
       opacity: 1,
     },
   },
@@ -62,6 +62,7 @@ export default {
     cursor: "pointer",
     textDecoration: "none",
     opacity: 0,
+    transition: "all 0.3s ease-in-out",
   },
   boxContent: {
     position: "absolute",

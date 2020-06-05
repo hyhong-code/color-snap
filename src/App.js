@@ -18,10 +18,23 @@ class App extends Component {
     };
     this.findPalette = this.findPalette.bind(this);
     this.savePalette = this.savePalette.bind(this);
+    this.removePalette = this.removePalette.bind(this);
   }
 
   findPalette(id) {
     return this.state.palettes.find((palette) => palette.id === id);
+  }
+
+  removePalette(id) {
+    this.setState(
+      (ps) => ({
+        palettes: ps.palettes.filter((palette) => palette.id !== id),
+      }),
+      () => {
+        // use setState callback to ensure palette is removed from state before storing
+        this.syncLocalStorage();
+      }
+    );
   }
 
   savePalette(newPalette) {
@@ -30,7 +43,7 @@ class App extends Component {
         palettes: [...ps.palettes, newPalette],
       }),
       () => {
-        // use setState callback to ensure state is changed before storing
+        // use setState callback to ensure new palette is added to state before storing
         this.syncLocalStorage();
       }
     );
@@ -51,7 +64,11 @@ class App extends Component {
           exact
           path="/"
           render={(routeProps) => (
-            <PaletteList {...routeProps} palettes={this.state.palettes} />
+            <PaletteList
+              {...routeProps}
+              palettes={this.state.palettes}
+              removePalette={this.removePalette}
+            />
           )}
         />
         <Route
