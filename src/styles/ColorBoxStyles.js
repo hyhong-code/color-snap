@@ -30,19 +30,19 @@ export default {
     color: (props) =>
       Chroma(props.background).luminance() >= 0.7
         ? "rgba(0, 0, 0, 0.5)"
-        : "white",
+        : "rgba(255, 255, 255, 0.75)",
   },
   colorName: {
     color: (props) =>
       Chroma(props.background).luminance() <= 0.08
-        ? "white"
+        ? "rgba(255, 255, 255, 0.75)"
         : "rgba(0, 0, 0, 0.75)",
   },
   showMore: {
     color: (props) =>
       Chroma(props.background).luminance() >= 0.7
         ? "rgba(0, 0, 0, 0.5)"
-        : "white",
+        : "rgba(255, 255, 255, 0.75)",
     background: "rgba(255, 255, 255, 0.3)",
     position: "absolute",
     border: "none",
@@ -58,7 +58,7 @@ export default {
     color: (props) =>
       Chroma(props.background).luminance() >= 0.7
         ? "rgba(0, 0, 0, 0.5)"
-        : "white",
+        : "rgba(255, 255, 255, 0.75)",
     width: "100px",
     height: "30px",
     position: "absolute",

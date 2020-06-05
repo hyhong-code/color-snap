@@ -13,6 +13,7 @@ import DraggableColorList from "./DraggableColorList";
 import { ValidatorForm } from "react-material-ui-form-validator";
 import { arrayMove } from "react-sortable-hoc";
 import ColorPickerForm from "./ColorPickerForm";
+import seedPalettes from "./seedPalettes";
 import styles from "./styles/NewPaletteFormStyles";
 
 class NewPaletteForm extends Component {
@@ -26,7 +27,7 @@ class NewPaletteForm extends Component {
       open: false,
       curColor: "teal",
       newColorName: "",
-      colors: this.props.allPalettes[0].colors,
+      colors: seedPalettes[0].colors,
       newPaletteName: "",
     };
     this.updateCurColor = this.updateCurColor.bind(this);
