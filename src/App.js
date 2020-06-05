@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import "./App.css";
 import Palette from "./Palette";
 import seedPalettes from "./seedPalettes";
 import PaletteList from "./PaletteList";
 import SingleColorPalette from "./SingleColorPalette";
 import NewPaletteForm from "./NewPaletteForm";
 import { generatePalette } from "./colorHelpers";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
+    // load data from persistance layer
+    const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"));
     this.state = {
-      palettes: seedPalettes,
+      palettes: savedPalettes || seedPalettes,
     };
     this.findPalette = this.findPalette.bind(this);
     this.savePalette = this.savePalette.bind(this);
@@ -23,9 +25,23 @@ class App extends Component {
   }
 
   savePalette(newPalette) {
-    this.setState((ps) => ({
-      palettes: [...ps.palettes, newPalette],
-    }));
+    this.setState(
+      (ps) => ({
+        palettes: [...ps.palettes, newPalette],
+      }),
+      () => {
+        // use setState callback to ensure state is changed before storing
+        this.syncLocalStorage();
+      }
+    );
+  }
+
+  // save data to persistance layer
+  syncLocalStorage() {
+    window.localStorage.setItem(
+      "palettes",
+      JSON.stringify(this.state.palettes)
+    );
   }
 
   render() {
