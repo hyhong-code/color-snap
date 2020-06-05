@@ -20,20 +20,19 @@ class PaletteMetaForm extends Component {
 
   submitForm = (emoji) => {
     this.props.handleSubmit(emoji.native);
+    this.setState({ showStage: "" });
   };
 
   render() {
     const { handleChange, newPaletteName, handleHideForm } = this.props;
+    const { showStage } = this.state;
     return (
       <div>
-        <Dialog
-          open={this.state.showStage === "emoji"}
-          onClose={handleHideForm}
-        >
+        <Dialog open={showStage === "emoji"} onClose={handleHideForm}>
           <Picker onSelect={this.submitForm} title="Pick a palette emoji!" />
         </Dialog>
         <Dialog
-          open={this.state.showStage === "form"}
+          open={showStage === "form"}
           onClose={handleHideForm}
           aria-labelledby="form-dialog-title"
         >

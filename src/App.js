@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Palette from "./Palette";
-import seedPalettes from "./seedPalettes";
 import PaletteList from "./PaletteList";
 import SingleColorPalette from "./SingleColorPalette";
 import NewPaletteForm from "./NewPaletteForm";
+import Page from "./Page";
+import seedPalettes from "./seedPalettes";
 import { generatePalette } from "./colorHelpers";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
-import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -63,31 +63,31 @@ class App extends Component {
       <Route
         render={({ location }) => (
           <TransitionGroup>
-            <CSSTransition key={location.key} classNames="fade" timeout={500}>
+            <CSSTransition key={location.key} classNames="page" timeout={500}>
               <Switch location={location}>
                 <Route
                   exact
                   path="/"
                   render={(routeProps) => (
-                    <div className="page">
+                    <Page>
                       <PaletteList
                         {...routeProps}
                         palettes={this.state.palettes}
                         removePalette={this.removePalette}
                       />
-                    </div>
+                    </Page>
                   )}
                 />
                 <Route
                   exact
                   path="/palette/new"
                   render={() => (
-                    <div className="page">
+                    <Page>
                       <NewPaletteForm
                         savePalette={this.savePalette}
                         allPalettes={this.state.palettes}
                       />
-                    </div>
+                    </Page>
                   )}
                 />
                 <Route
@@ -98,11 +98,11 @@ class App extends Component {
                       params: { id },
                     },
                   }) => (
-                    <div className="page">
+                    <Page>
                       <Palette
                         palette={generatePalette(this.findPalette(id))}
                       />
-                    </div>
+                    </Page>
                   )}
                 />
                 <Route
@@ -113,12 +113,12 @@ class App extends Component {
                       params: { paletteId, colorId },
                     },
                   }) => (
-                    <div className="page">
+                    <Page>
                       <SingleColorPalette
                         colorId={colorId}
                         palette={generatePalette(this.findPalette(paletteId))}
                       />
-                    </div>
+                    </Page>
                   )}
                 />
               </Switch>
