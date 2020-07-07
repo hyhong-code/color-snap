@@ -14,7 +14,7 @@
 
 ---
 
-[Live demo](https://hyhong-code.github.io/color-snap/)
+[Live demo](https://hyhong-code.github.io/color-snap-React/)
 
 ---
 

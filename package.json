@@ -1,7 +1,7 @@
 {
   "name": "color-snap",
   "version": "0.1.0",
-  "homepage": "http://hy-hong.github.io/color-snap",
+  "homepage": "http://hy-hong.github.io/color-snap-React",
   "dependencies": {
     "@material-ui/core": "^4.10.1",
     "@material-ui/icons": "^4.9.1",
