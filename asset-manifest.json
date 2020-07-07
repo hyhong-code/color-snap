@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/color-snap/static/css/main.df50b468.chunk.css",
-    "main.js": "/color-snap/static/js/main.49668516.chunk.js",
-    "main.js.map": "/color-snap/static/js/main.49668516.chunk.js.map",
-    "runtime-main.js": "/color-snap/static/js/runtime-main.9994f2d4.js",
-    "runtime-main.js.map": "/color-snap/static/js/runtime-main.9994f2d4.js.map",
-    "static/css/2.0da342d8.chunk.css": "/color-snap/static/css/2.0da342d8.chunk.css",
-    "static/js/2.6912859b.chunk.js": "/color-snap/static/js/2.6912859b.chunk.js",
-    "static/js/2.6912859b.chunk.js.map": "/color-snap/static/js/2.6912859b.chunk.js.map",
-    "index.html": "/color-snap/index.html",
-    "precache-manifest.d2bafca3c9822c85b1b0782ea6bf09e4.js": "/color-snap/precache-manifest.d2bafca3c9822c85b1b0782ea6bf09e4.js",
-    "service-worker.js": "/color-snap/service-worker.js",
-    "static/css/2.0da342d8.chunk.css.map": "/color-snap/static/css/2.0da342d8.chunk.css.map",
-    "static/css/main.df50b468.chunk.css.map": "/color-snap/static/css/main.df50b468.chunk.css.map",
-    "static/js/2.6912859b.chunk.js.LICENSE.txt": "/color-snap/static/js/2.6912859b.chunk.js.LICENSE.txt",
-    "static/media/bg.svg": "/color-snap/static/media/bg.e91dd7d3.svg"
+    "main.css": "/color-snap-React/static/css/main.df50b468.chunk.css",
+    "main.js": "/color-snap-React/static/js/main.edaae0bb.chunk.js",
+    "main.js.map": "/color-snap-React/static/js/main.edaae0bb.chunk.js.map",
+    "runtime-main.js": "/color-snap-React/static/js/runtime-main.f028a3a2.js",
+    "runtime-main.js.map": "/color-snap-React/static/js/runtime-main.f028a3a2.js.map",
+    "static/css/2.0da342d8.chunk.css": "/color-snap-React/static/css/2.0da342d8.chunk.css",
+    "static/js/2.6912859b.chunk.js": "/color-snap-React/static/js/2.6912859b.chunk.js",
+    "static/js/2.6912859b.chunk.js.map": "/color-snap-React/static/js/2.6912859b.chunk.js.map",
+    "index.html": "/color-snap-React/index.html",
+    "precache-manifest.103636f29a543cf87620e4d80451fd16.js": "/color-snap-React/precache-manifest.103636f29a543cf87620e4d80451fd16.js",
+    "service-worker.js": "/color-snap-React/service-worker.js",
+    "static/css/2.0da342d8.chunk.css.map": "/color-snap-React/static/css/2.0da342d8.chunk.css.map",
+    "static/css/main.df50b468.chunk.css.map": "/color-snap-React/static/css/main.df50b468.chunk.css.map",
+    "static/js/2.6912859b.chunk.js.LICENSE.txt": "/color-snap-React/static/js/2.6912859b.chunk.js.LICENSE.txt",
+    "static/media/bg.svg": "/color-snap-React/static/media/bg.e91dd7d3.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.9994f2d4.js",
+    "static/js/runtime-main.f028a3a2.js",
     "static/css/2.0da342d8.chunk.css",
     "static/js/2.6912859b.chunk.js",
     "static/css/main.df50b468.chunk.css",
-    "static/js/main.49668516.chunk.js"
+    "static/js/main.edaae0bb.chunk.js"
   ]
 }
