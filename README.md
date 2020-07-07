@@ -14,7 +14,7 @@
 
 ---
 
-[Live demo](https://hong-colorsnap.herokuapp.com/)
+[Live demo](https://hyhong-code.github.io/color-snap/)
 
 ---
 
